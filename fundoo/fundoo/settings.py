@@ -105,7 +105,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'chatapp',
         'USER': 'chatapp',
-        'HOST': '172.31.12.98'
+        'HOST': '172.31.12.98',
         'PORT': '3306',
     }
 }
