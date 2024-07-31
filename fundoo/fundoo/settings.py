@@ -1,6 +1,7 @@
 import os
 
 from dotenv import python-dotenv
+load_dotenv()
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -102,14 +103,43 @@ CHANNEL_LAYERS = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'chatapp',
-        'USER': 'chatapp',
-        'PASSWORD' : 'password',
-        'HOST' : 'chatapp.c6rrbhustsrf.us-east-2.rds.amazonaws.com',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
+```
+
+### 2. Update `.env` File
+
+Ensure your `.env` file includes the necessary PostgreSQL environment variables:
+
+```
+DB_NAME=chatapp
+DB_USER=chatapp
+DB_PASSWORD=password
+DB_HOST=chatapp.c6rrbhustsrf.us-east-2.rds.amazonaws.com
+DB_PORT=5432
+```
+
+### 3. Verify `python-dotenv` Installation
+
+Ensure that `python-dotenv` is listed in your `requirements.txt` file, as it's required for loading environment variables:
+
+```
+python-dotenv
+```
+
+### Explanation
+
+- **`settings.py` Changes**: The `DATABASES` setting is configured to use PostgreSQL with environment variables. `python-dotenv` is used to load variables from a `.env` file.
+- **`.env` File**: Contains sensitive database configuration that should not be hardcoded in `settings.py`.
+
+This setup ensures that your sensitive database credentials are managed securely using environment variables and your application remains configurable and portable.
+
 #sagar kadam
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
