@@ -1,123 +1,120 @@
-@media(max-width:425px)
-{body{
-    background : url("/static/web3.jpg");
-    background-size: 1200px;
-    min-height: 100%;
-    background-position: center;
-    background-size: cover;
-
-
+/* General Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: "Raleway", sans-serif;
 }
 
-.button {
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #f4511e;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 28px;
-  padding: 20px;
-  padding-left:100px;
-  padding-right:50px;
-  width: 200px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  position: absolute;
-  left: 250px;
-  top: 200px;
-
-}
-
-
-}
 body {
-    background : url("/static/web3.jpg") ;
-    background-size: 1200px;
-    min-height: 100%;
-    background-position: center;
+    background: url("/static/web3.jpg") no-repeat center center fixed;
     background-size: cover;
 }
 
-body, html {height: 100%}
-h3{
-    font-family: "Raleway", sans-serif;
-    font-size: 20px;
+/* Header Styles */
+h1, h3 {
     color: white;
     position: absolute;
-    right: 30px;
-    top: 30px;
+    font-family: "Raleway", sans-serif;
 }
 
-
-h1{
-    font-family: "Raleway", sans-serif;
+h1 {
     font-size: 50px;
-    color: white;
-    position: absolute;
-    left: 250px;
-    top: 150px;
-}
-a:link {
-  color: red;
-  display: inline-block;
+    left: 5%;
+    top: 20%;
+    margin: 0;
 }
 
-/* visited link */
-a:visited {
-  color: blue;
+h3 {
+    font-size: 20px;
+    right: 5%;
+    top: 5%;
+    margin: 0;
 }
 
-/* mouse over link */
-a:hover {
-  color: hotpink;
-}
-
-/* selected link */
-a:active {
-  color: blue;
-}
-
+/* Button Styles */
 .button {
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #f4511e;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 28px;
-  padding: 20px;
-  width: 200px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  position: absolute;
-  left: 450px;
-  top: 300px;
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+    padding: 15px 30px;
+    width: auto;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 10px;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translateX(-50%);
 }
 
 .button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
 }
 
 .button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 50%;
+    right: -30px;
+    transition: 0.5s;
+    transform: translateY(-50%);
 }
 
 .button:hover span {
-  padding-right: 25px;
+    padding-right: 30px;
 }
 
 .button:hover span:after {
-  opacity: 1;
-  right: 0;
+    opacity: 1;
+    right: 10px;
+}
+
+/* Link Styles */
+a:link {
+    color: red;
+    text-decoration: none;
+}
+
+a:visited {
+    color: blue;
+}
+
+a:hover {
+    color: hotpink;
+}
+
+a:active {
+    color: blue;
+}
+
+/* Responsive Styles */
+@media (max-width: 425px) {
+    h1 {
+        font-size: 35px;
+        left: 10%;
+        top: 10%;
+    }
+
+    h3 {
+        font-size: 16px;
+        right: 10%;
+        top: 5%;
+    }
+
+    .button {
+        font-size: 20px;
+        padding: 10px 20px;
+        width: 150px;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%);
+    }
 }
