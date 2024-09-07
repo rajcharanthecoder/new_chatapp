@@ -2,15 +2,93 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatApp</title>
     <style>
-        body {
-                background-image: url("/static/web3.jpg");
+        /* General Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Raleway', sans-serif;
+            height: 100%;
         }
 
-</style>
+        /* Background Styling */
+        body {
+            background-image: url("/static/apple.jpg");
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        /* Container Styling */
+        .container {
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Heading Styling */
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #f4511e;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Button Styling */
+        .button {
+            display: inline-block;
+            border-radius: 4px;
+            background-color: #f4511e;
+            border: none;
+            color: #ffffff;
+            text-align: center;
+            font-size: 1.25rem;
+            padding: 15px 30px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #e43a1e;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .button {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 425px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .button {
+                font-size: 0.875rem;
+                padding: 8px 16px;
+            }
+        }
+    </style>
 </head>
 <body>
-
+    <div class="container">
+        <h1>Welcome to ChatApp</h1>
+        <a href="#" class="button">Get Started</a>
+    </div>
 </body>
 </html>
