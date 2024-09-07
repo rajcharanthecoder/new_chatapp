@@ -1,15 +1,125 @@
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+        h1 {
+            color: #f4511e;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        h3 {
+            margin: 20px 0;
+        }
+        a {
+            color: #f4511e;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #c43c35;
+        }
+        .button {
+            display: inline-block;
+            border-radius: 4px;
+            background-color: #f4511e;
+            border: none;
+            color: #ffffff;
+            text-align: center;
+            font-size: 1.2em;
+            padding: 15px 30px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            margin: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+        .button:hover {
+            background-color: #d43f2a;
+            transform: scale(1.05);
+        }
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="dynamic-heading">Welcome to Chat Application Bridge For Rajcharan Incorporation Users</h1>
+        <button class="button"><span><a href="{% url 'sign_in' %}">Login</a></span></button>
+        <h3><a href="{% url 'signup' %}">Click Here to Register!</a></h3>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const messages = [
+                'Welcome to Chat Application Bridge For Rajcharan Incorporation Users',
+                'Thanks for choosing us',
+                'Register here and join us',
+                'Thank you',
+                'DevOps Team'
+            ];
 
-<title>Index</title>
-{#  Main HomePage contain links for login and registration #}
-{% block content %}
-<center>
-    <h1>Welcome to Chat application Bridge For Sonata users</h1><br><br>
-    <button class="button" style="vertical-align:middle"><span><a href="{% url 'sign_in' %}">Login</a></span></button><br>
-    <h3><a href="{% url 'signup' %}">Click Here to register!</a></h3><br><br>
-    </center>
-</center>>
-{% endblock %}
+            let currentIndex = 0;
+            const headingElement = document.getElementById('dynamic-heading');
+
+            function changeHeading() {
+                headingElement.textContent = messages[currentIndex];
+                currentIndex = (currentIndex + 1) % messages.length;
+            }
+
+            setInterval(changeHeading, 3000); // Change text every 3 seconds
+        });
+    </script>
+</body>
+</html>
