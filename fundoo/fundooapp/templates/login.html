@@ -1,14 +1,94 @@
- {% block content %}
-<center><br>
-<h2>Login</h2>
-<form method="post", action="/login/">
-  {% csrf_token %}
-  <label for="username"><b>Username</b></label><br>
-  <input type="text" name="username" placeholder="Enter Username"><br><br>
-  <label for="password"><b>Password</b></label><br>
-  <input type="password" name="password" placeholder="Enter password"><br><br>
-  <button type="submit">Login</button><br><br>
-  <a href="{% url 'password_reset' %}">Forgot password? click here..</a>
-</form>
-</center>
- {% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Chat Application</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .login-container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h2 {
+            color: #f4511e;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #f4511e;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #d43f2a;
+        }
+        a {
+            color: #f4511e;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #c43c35;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        {% block content %}
+        <h2>Login</h2>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <label for="username"><b>Username</b></label>
+            <input type="text" id="username" name="username" placeholder="Enter Username" required>
+            
+            <label for="password"><b>Password</b></label>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required>
+            
+            <button type="submit">Login</button>
+            
+            <a href="{% url 'password_reset' %}">Forgot password? Click here.</a>
+        </form>
+        {% endblock %}
+    </div>
+</body>
+</html>
