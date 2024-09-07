@@ -1,6 +1,65 @@
 {% autoescape off %}
-Hi {{ user.username }},
-Please click on the link to confirm your registration,
-
-http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #f4511e; /* Brand color */
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        a {
+            color: #f4511e; /* Brand color */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello {{ user.username }},</h1>
+        <p>
+            Thank you for registering with us! To complete your registration, please confirm your email address by clicking the link below:
+        </p>
+        <p>
+            <a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}">Confirm Your Registration</a>
+        </p>
+        <p>
+            If the link above doesn't work, please copy and paste it into your browser's address bar.
+        </p>
+        <p>
+            If you have any questions, feel free to reach out to our support team.
+        </p>
+        <p>
+            Best regards,<br>
+            The TestSite Team
+        </p>
+    </div>
+</body>
+</html>
 {% endautoescape %}
